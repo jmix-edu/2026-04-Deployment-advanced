@@ -32,20 +32,6 @@ public class JmixPm271Application implements AppShellConfigurator {
         SpringApplication.run(JmixPm271Application.class, args);
     }
 
-    @Bean
-    @Primary
-    @ConfigurationProperties("main.datasource")
-    DataSourceProperties dataSourceProperties() {
-        return new DataSourceProperties();
-    }
-
-    @Bean
-    @Primary
-    @ConfigurationProperties("main.datasource.hikari")
-    DataSource dataSource(final DataSourceProperties dataSourceProperties) {
-        return dataSourceProperties.initializeDataSourceBuilder().build();
-    }
-
     @EventListener
     public void printApplicationUrl(final ApplicationStartedEvent event) {
         LoggerFactory.getLogger(JmixPm271Application.class).info("Application started at "

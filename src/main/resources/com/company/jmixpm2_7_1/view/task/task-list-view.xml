@@ -33,6 +33,7 @@
                        dataLoader="tasksDl">
             <properties include=".*"/>
         </genericFilter>
+        <propertyFilter property="name" operation="CONTAINS" dataLoader="tasksDl" autoApply="true"/>
         <hbox id="buttonsPanel" classNames="buttons-panel">
             <button id="createButton" action="tasksDataGrid.createAction"/>
             <button id="editButton" action="tasksDataGrid.editAction"/>
