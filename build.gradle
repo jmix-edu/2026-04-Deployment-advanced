@@ -23,6 +23,8 @@ repositories {
 
 dependencies {
 
+    implementation 'com.hazelcast:hazelcast'
+
     implementation 'org.springframework.boot:spring-boot-starter-undertow'
 
     modules {
@@ -75,4 +77,14 @@ idea {
 
 vaadin {
     optimizeBundle = false
+}
+
+bootBuildImage {
+    builder = "paketobuildpacks/builder-jammy-full:latest"
+    imageName = "jmixpm:boot"
+
+    environment = [
+            "BP_JVM_VERSION": "21",
+            "BP_JVM_DISTRO": "temurin"
+    ]
 }
